@@ -25,8 +25,7 @@
         android:layout_alignLeft="@+id/suchen"
         android:layout_marginBottom="44dp"
         android:layout_toLeftOf="@+id/linearLayout1"
-        android:text="Frage stellen" 
-        android:onClick="aufruf"/>
+        android:text="Frage stellen" />
 
     <Button
         android:id="@+id/offen"
@@ -35,7 +34,7 @@
         android:layout_alignBottom="@+id/stellen"
         android:layout_alignLeft="@+id/linearLayout1"
         android:layout_alignRight="@+id/suchen"
-        android:text="offene Fragen" />
+        android:text="offene Fragen"  />
 
     <ImageView
         android:id="@+id/imageView1"

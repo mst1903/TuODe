@@ -1,5 +1,6 @@
 package test.tuode2;
 
+import test.tuode2.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,29 +9,38 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private static final String TAG = "Activity";
-	String text;
+	
+	
 	
 	@Override
 	 protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
         Button fragestellen = (Button)findViewById(R.id.stellen);
         fragestellen.setOnClickListener(new OnClickListener (){
         	
-        	@Override
         	public void onClick (View v){
         		Log.v(TAG, "TEST LOG");
-        		aufruf();
+        		aufruf_stellen();
         	}
-        });
+        	 }
+        	 );
         
-    }
+        Button offeneFragen = (Button)findViewById(R.id.offen);
+        offeneFragen.setOnClickListener(new OnClickListener (){
+        	
+        	public void onClick (View v){
+        		Log.v(TAG, "TEST LOG");
+        		aufruf_offen();
+        	}
+        	 }
+        	 );
+    }    
+   
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,8 +49,13 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
-	public void aufruf() {
+	public void aufruf_stellen() {
 		Intent i = new Intent(this, Fragestellen.class);
+		startActivityForResult(i,1);
+	}
+	
+	public void aufruf_offen() {
+		Intent i = new Intent(this, OffeneFragen.class);
 		startActivityForResult(i,1);
 	}
 

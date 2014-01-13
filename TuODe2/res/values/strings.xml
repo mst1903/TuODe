@@ -3,9 +3,10 @@
 
     <string name="app_name">TuODe2</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_fragestellen">Fragestellen</string><string name="hello_world">Hello world!</string>
-    
+    <string name="title_activity_fragestellen">Fragestellen</string>
+    <string name="hello_world">Hello world!</string>
     <string name="error_okay">Korrekte Eingabe</string>
     <string name="error_name_missing">Texteingabefeld ist leer !</string>
+    <string name="title_activity_offene_fragen">OffeneFragen</string>
 
 </resources>

@@ -1,9 +1,8 @@
 package test.tuode2;
 
 import android.app.Activity;
-import android.content.ContentValues;
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -37,15 +36,11 @@ public class Fragestellen extends Activity {
 	                
 	        		nameField = (EditText)findViewById(R.id.editBeschreibung);	        		 
 	                String Beschreibung = nameField.getText().toString();
-	                int kategorie = 1; //fester Wert, muss noch geändert werden
 	        		
-	                frageSpeichern(kategorie,Title,Beschreibung);
-	                
 	        		Intent person = new Intent();
 	        		Bundle rucksack = new Bundle();
 	        		rucksack.putString("title", Title);
 	        		rucksack.putString("beschreibung", Beschreibung);
-	        		rucksack.putInt("kategorie", kategorie);
 	        		person.putExtras(rucksack);
 	        		setResult(RESULT_OK, person);
 	        		finish();
@@ -94,18 +89,6 @@ public class Fragestellen extends Activity {
 		setResult(RESULT_OK, person);
 		finish();
 		
-	}
-	
-	public void frageSpeichern(int kategorie, String titel, String beschreibung){
-		FragenDatenbank db = new FragenDatenbank(this);
-		SQLiteDatabase con = db.getWritableDatabase();
-		
-		ContentValues cv = new ContentValues();
-		
-		cv.put("Titel", titel);
-		cv.put("Kategorie_id", kategorie);
-		cv.put("Beschreibung", beschreibung);
-		con.insert("frage", null, cv);
 	}
 	
 	
