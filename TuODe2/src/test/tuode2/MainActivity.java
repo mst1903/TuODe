@@ -1,8 +1,8 @@
 package test.tuode2;
 
-import test.tuode2.R;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -39,6 +39,22 @@ public class MainActivity extends Activity {
         	}
         	 }
         	 );
+        /*
+        //mit Suchen Button die Datenbank neu erstellen
+        final FragenDatenbank db = new FragenDatenbank(this);
+        final SQLiteDatabase con = db.getWritableDatabase();
+        Button suchen = (Button)findViewById(R.id.suchen);
+        suchen.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				db.onUpgrade(con, 1, 2);
+				
+				
+			}
+        	
+        });
+        */
     }    
    
 

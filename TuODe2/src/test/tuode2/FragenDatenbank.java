@@ -6,6 +6,15 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FragenDatenbank extends SQLiteOpenHelper{
 	
+	public static final String fragenTabelle = "frage";
+	public static final String antwortenTabelle = "antwort";
+	public static final String id = "_id";
+	public static final String beschreibung = "Beschreibung";
+	public static final String titel = "Titel";
+	public static final String kategorie = "Kategorie";
+	public static final String frageId = "Frage_id";
+	public static final String datum = "Datum";
+	
 	public FragenDatenbank(Context context) {
 		super(context, "fragen.db", null, 1);
 	}
@@ -15,39 +24,21 @@ public class FragenDatenbank extends SQLiteOpenHelper{
 		db.execSQL("CREATE TABLE frage ("
 				+ "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "Titel TEXT NOT NULL," 
-				+ "Kategorie_id integer NOT NULL," 
-				+ "Beschreibung TEXT NOT NULL);");
-		db.execSQL("CREATE TABLE kategorie ("
-				+ "_id INTEGER PRIMARY KEY,"
-				+ "Titel TEXT NOT NULL" 
+				+ "Kategorie TEXT NOT NULL," 
+				+ "Beschreibung TEXT NOT NULL,"
+				+ "Datum Date"
 				+ ");");
 		db.execSQL("CREATE TABLE antwort ("
 				+ "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "Frage_id integer NOT NULL," 
-				+ "Beschreibung TEXT NOT NULL"
+				+ "Beschreibung TEXT NOT NULL,"
+				+ "Datum Date"
 				+ ");");
-		
-		//Kategorien
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(1,'keine');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(2,'Wirtschaft');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(3,'Informatik');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(4,'Gesundheit');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(5,'Mathematik');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(6,'Gestaltung');");
-		db.execSQL("INSERT INTO kategorie (_id,Titel) VALUES "
-				+ "(7,'Sprachen');");
 		
 	}
 
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		db.execSQL("DROP TABLE Frage;");
-		db.execSQL("DROP TABLE Kategorie;");
 		db.execSQL("DROP TABLE Antwort;");
 		onCreate(db);
 	}

@@ -1,6 +1,8 @@
 package test.tuode2;
 
 import android.app.Activity;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
@@ -10,19 +12,32 @@ import android.widget.ListView;
 
 public class OffeneFragen extends Activity {
 	
-/*befüllt die Listview (dafür muss die id der listview aber wieder in id="@ListView1" geändert werden) ist wohl nicht geeignet um daten aus einer datenbank einzutragen?! */
-/*@Override
+//befüllt die Listview (dafür muss die id der listview aber wieder in id="@ListView1" geändert werden) ist wohl nicht geeignet um daten aus einer datenbank einzutragen?! */
+@Override
 public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_offene_fragen);
 		
-	String[] listItems = {"Element 1", "Element 2", "Element 3", "Element 4", "Element 5", "Element 6", "Element 7", "Element 8"};
+	//String[] listItems = {"Element 1", "Element 2", "Element 3", "Element 4", "Element 5", "Element 6", "Element 7", "Element 8"};
 	
-	ListView lv = (ListView) findViewById(R.id.listView1);
+	FragenDatenbank db = new FragenDatenbank(this);
+	SQLiteDatabase con = db.getWritableDatabase();
 	
-	lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listItems));
+	String columns[] = {FragenDatenbank.titel};
+	Cursor cursor = con.query(FragenDatenbank.fragenTabelle, columns, null, null, null, null, null);
+	String fragen[];
+	fragen = new String[cursor.getCount()];
+	int i = 0;
 	
-}*/
+	while(cursor.moveToNext()){
+		fragen[i] = cursor.getString(cursor.getColumnIndex("Titel"));
+		i++;
+	}
+	
+	ListView lv = (ListView) findViewById(R.id.list);
+	lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fragen));
+	
+}
 	
 /*	@Override
 	protected void onCreate(Bundle savedInstanceState) {

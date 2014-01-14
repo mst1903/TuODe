@@ -76,7 +76,7 @@
         android:text="Katrgorie 5" />
 
     <ListView
-        android:id="@android:id/list"
+        android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/kategorie4"
