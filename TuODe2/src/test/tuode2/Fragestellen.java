@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 public class Fragestellen extends Activity {
 
@@ -37,7 +38,10 @@ public class Fragestellen extends Activity {
 	                
 	        		nameField = (EditText)findViewById(R.id.editBeschreibung);	        		 
 	                String Beschreibung = nameField.getText().toString();
-	                String kategorie = "Wirtschaft"; //fester Wert, muss noch geändert werden
+	                
+	                Spinner spinner = (Spinner) findViewById(R.id.sp_kategorie);
+	                
+	                String kategorie = String.valueOf(spinner.getSelectedItem()); 
 	        		
 	                frageSpeichern(kategorie,Title,Beschreibung);
 	                

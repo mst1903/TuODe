@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Kategorie 1" />
+        android:text="Wirtschaft" />
 
     <Button
         android:id="@+id/kategorie2"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/kategorie1"
         android:layout_centerHorizontal="true"
-        android:text="Kategorie 2" />
+        android:text="Informatik" />
 
     <Button
         android:id="@+id/kategorie3"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/linearLayout1"
         android:layout_alignTop="@+id/linearLayout1"
-        android:text="Kategorie 3" />
+        android:text="Mathematik" />
 
     <Button
         android:id="@+id/kategorie4"
@@ -53,7 +53,7 @@
         android:layout_below="@+id/kategorie1"
         android:layout_marginTop="14dp"
         android:layout_toLeftOf="@+id/kategorie2"
-        android:text="Kategorie 4" />
+        android:text="Sprachen" />
 
     <Button
         android:id="@+id/kategorie6"
@@ -63,7 +63,7 @@
         android:layout_alignBaseline="@+id/kategorie4"
         android:layout_alignBottom="@+id/kategorie4"
         android:layout_alignRight="@+id/linearLayout1"
-        android:text="Kategorie 6" />
+        android:text="Gestaltung" />
 
     <Button
         android:id="@+id/kategorie5"
@@ -73,7 +73,7 @@
         android:layout_alignBaseline="@+id/kategorie6"
         android:layout_alignBottom="@+id/kategorie6"
         android:layout_toLeftOf="@+id/kategorie6"
-        android:text="Katrgorie 5" />
+        android:text="Gesundheit" />
 
     <ListView
         android:id="@+id/list"
