@@ -39,8 +39,7 @@ public class MainActivity extends Activity {
         	}
         	 }
         	 );
-        /*
-        //mit Suchen Button die Datenbank neu erstellen
+        
         final FragenDatenbank db = new FragenDatenbank(this);
         final SQLiteDatabase con = db.getWritableDatabase();
         Button suchen = (Button)findViewById(R.id.suchen);
@@ -48,13 +47,13 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				db.onUpgrade(con, 1, 2);
+				aufruf_anzeigen();
 				
 				
 			}
         	
         });
-        */
+        
     }    
    
 
@@ -64,7 +63,12 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
+	public void aufruf_anzeigen() {
+		Intent i = new Intent(this, FrageAnzeigen.class);
+		startActivityForResult(i,1);
+	}
+	
 	public void aufruf_stellen() {
 		Intent i = new Intent(this, Fragestellen.class);
 		startActivityForResult(i,1);

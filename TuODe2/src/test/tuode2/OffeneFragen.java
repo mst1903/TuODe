@@ -23,14 +23,17 @@ public void onCreate(Bundle savedInstanceState) {
 	FragenDatenbank db = new FragenDatenbank(this);
 	SQLiteDatabase con = db.getWritableDatabase();
 	
-	String columns[] = {FragenDatenbank.titel};
+	String columns[] = {FragenDatenbank.titel, FragenDatenbank.id};
 	Cursor cursor = con.query(FragenDatenbank.fragenTabelle, columns, null, null, null, null, null);
 	String fragen[];
 	fragen = new String[cursor.getCount()];
+	int id[];
+	id = new int[cursor.getCount()];
 	int i = 0;
 	
 	while(cursor.moveToNext()){
-		fragen[i] = cursor.getString(cursor.getColumnIndex("Titel"));
+		fragen[i] = cursor.getString(cursor.getColumnIndex(FragenDatenbank.titel));
+		id[i] = cursor.getInt(cursor.getColumnIndex(FragenDatenbank.id));
 		i++;
 	}
 	

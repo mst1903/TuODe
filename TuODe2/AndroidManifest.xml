@@ -32,6 +32,10 @@
             android:name="test.tuode2.OffeneFragen"
             android:label="@string/title_activity_offene_fragen" >
         </activity>
+        <activity
+            android:name="test.tuode2.FrageAnzeigen"
+            android:label="@string/title_activity_frage_anzeigen" >
+        </activity>
     </application>
 
 </manifest>

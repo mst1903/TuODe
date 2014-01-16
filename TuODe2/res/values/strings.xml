@@ -8,13 +8,16 @@
     <string name="error_okay">Korrekte Eingabe</string>
     <string name="error_name_missing">Texteingabefeld ist leer !</string>
     <string name="title_activity_offene_fragen">OffeneFragen</string>
+
     <string-array name="kategorien">
-        <item >Wirtschaft</item>
-        <item >Informatik</item>
-        <item >Mathematik</item>
-        <item >Sprachen</item>
-        <item >Gesundheit</item>
-        <item >Gestaltung</item>
+        <item>Wirtschaft</item>
+        <item>Informatik</item>
+        <item>Mathematik</item>
+        <item>Sprachen</item>
+        <item>Gesundheit</item>
+        <item>Gestaltung</item>
     </string-array>
+
+    <string name="title_activity_frage_anzeigen">FrageAnzeigen</string>
 
 </resources>
