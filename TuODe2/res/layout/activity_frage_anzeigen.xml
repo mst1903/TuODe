@@ -6,10 +6,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:descendantFocusability="beforeDescendants"
+	android:focusableInTouchMode="true"
     tools:context=".FrageAnzeigen" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/fragentitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -27,15 +29,14 @@
         android:ems="10"
         android:inputType="textMultiLine" >
 
-        <requestFocus />
     </EditText>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/beschreibung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/fragentitel"
+        android:layout_below="@+id/fragentitel"
         android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." />
 
     <TextView
@@ -43,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/beschreibung"
         android:layout_marginTop="15dp"
         android:text="Antworten:"
         android:textAppearance="?android:attr/textAppearanceSmall" />

@@ -2,7 +2,6 @@ package test.tuode2;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -40,15 +39,11 @@ public class MainActivity extends Activity {
         	 }
         	 );
         
-        final FragenDatenbank db = new FragenDatenbank(this);
-        final SQLiteDatabase con = db.getWritableDatabase();
         Button suchen = (Button)findViewById(R.id.suchen);
         suchen.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
-				aufruf_anzeigen();
-				
 				
 			}
         	
@@ -62,11 +57,6 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
-	}
-	
-	public void aufruf_anzeigen() {
-		Intent i = new Intent(this, FrageAnzeigen.class);
-		startActivityForResult(i,1);
 	}
 	
 	public void aufruf_stellen() {
@@ -115,16 +105,14 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		String s;
 		  if (requestCode == 1) {
 
-		     if(resultCode == RESULT_OK){      
+		     if(resultCode == RESULT_OK){ 
+		    	 /*
 		         Bundle korb = data.getExtras();
 		         String Title = korb.getString("title");
 		         String Beschreibung = korb.getString("beschreibung");
-		         s=Title;
-		         s=Beschreibung;
-
+				*/
 		     }
 		     if (resultCode == RESULT_CANCELED) {    
 		         //Write your code if there's no result
