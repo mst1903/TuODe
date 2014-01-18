@@ -50,7 +50,7 @@ public void onCreate(Bundle savedInstanceState) {
 				long arg3) {
 			cursor.moveToPosition(position);
 			int id = cursor.getInt(cursor.getColumnIndex(FragenDatenbank.id));
-			frage_anzeigen(id);
+			frageAnzeigen(id);
 			
 			
 		}
@@ -78,7 +78,7 @@ public void onCreate(Bundle savedInstanceState) {
 	}*/
 	
 
-	public void frage_anzeigen(int id) {
+	public void frageAnzeigen(int id) {
 		Intent i = new Intent(this, FrageAnzeigen.class);
 		i.putExtra(FragenDatenbank.id, id);
 		startActivityForResult(i,1);

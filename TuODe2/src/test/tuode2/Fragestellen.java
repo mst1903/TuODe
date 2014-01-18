@@ -112,6 +112,7 @@ public class Fragestellen extends Activity {
 		cv.put(FragenDatenbank.beschreibung, beschreibung);
 		con.insert(FragenDatenbank.fragenTabelle, null, cv);
 		con.close();
+		db.close();
 	}
 	
 	
