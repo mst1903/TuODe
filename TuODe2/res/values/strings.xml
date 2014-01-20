@@ -10,6 +10,7 @@
     <string name="title_activity_offene_fragen">OffeneFragen</string>
 
     <string-array name="kategorien">
+        <item>(Kategorie auswählen)</item>
         <item>Wirtschaft</item>
         <item>Informatik</item>
         <item>Mathematik</item>

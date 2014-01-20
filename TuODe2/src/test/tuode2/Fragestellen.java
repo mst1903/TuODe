@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class Fragestellen extends Activity {
 
@@ -27,7 +28,7 @@ public class Fragestellen extends Activity {
 	        	public void onClick (View v){
 	        		
 	        		EditText nameField = (EditText)findViewById(R.id.editTitel);	        		 
-	                String Title = nameField.getText().toString();	         
+	                String title = nameField.getText().toString();	         
 	          /*      if (Title.length() == 0) {
 	                    new AlertDialog.Builder(this).setMessage(
 	                            R.string.error_name_missing).setNeutralButton(
@@ -37,23 +38,28 @@ public class Fragestellen extends Activity {
 	                }  */
 	                
 	        		nameField = (EditText)findViewById(R.id.editBeschreibung);	        		 
-	                String Beschreibung = nameField.getText().toString();
+	                String beschreibung = nameField.getText().toString();
 	                
 	                Spinner spinner = (Spinner) findViewById(R.id.sp_kategorie);
 	                
 	                String kategorie = String.valueOf(spinner.getSelectedItem()); 
 	        		
-	                frageSpeichern(kategorie,Title,Beschreibung);
-	                
-	        		Intent person = new Intent();
-	        		Bundle rucksack = new Bundle();
-	        		rucksack.putString("title", Title);
-	        		rucksack.putString("beschreibung", Beschreibung);
-	        		rucksack.putString("kategorie", kategorie);
-	        		person.putExtras(rucksack);
-	        		setResult(RESULT_OK, person);
-	        		finish();
-	        		
+	                if(title.equals("") | beschreibung.equals("")){
+	                	Toast.makeText(getApplicationContext(),
+	                			"Bitte geben Sie einen Titel und eine Beschreibung ein.",
+	                			Toast.LENGTH_SHORT).show();
+	                }
+	                else{
+	                	if(kategorie.equals("(Kategorie auswählen)")){
+	                		Toast.makeText(getApplicationContext(),
+		                			"Bitte wählen Sie eine Kategorie aus.",
+		                			Toast.LENGTH_SHORT).show();
+	                	}
+	                	else{
+	                		frageSpeichern(kategorie,title,beschreibung);
+	                		finish();
+	                	}
+	                }
 	        	}
 	        });
 	}

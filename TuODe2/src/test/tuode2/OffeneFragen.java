@@ -81,10 +81,10 @@ public void onCreate(Bundle savedInstanceState) {
 	public void frageAnzeigen(int id) {
 		Intent i = new Intent(this, FrageAnzeigen.class);
 		i.putExtra(FragenDatenbank.id, id);
-		startActivityForResult(i,1);
+		startActivity(i);
 		
 	
-}
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -93,6 +93,9 @@ public void onCreate(Bundle savedInstanceState) {
 		return true;
 	}
 
-	
+	public void onBackPressed(){
+		startActivity(new Intent(this, MainActivity.class));
+		finish();
+	}
 	
 }

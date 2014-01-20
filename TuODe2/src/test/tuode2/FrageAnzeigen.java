@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FrageAnzeigen extends Activity {
 	
@@ -73,10 +74,16 @@ public class FrageAnzeigen extends Activity {
 				String antwort = antwortText.getText().toString();
 				
 				//Antwort in DB speichern
-				antwortSpeichern(antwort);
+				if(antwort.equals("")){
+					Toast.makeText(getApplicationContext(),"Bitte geben Sie eine Antwort ein.", Toast.LENGTH_SHORT).show();
+				}
+				else{
+					antwortSpeichern(antwort);
+					//Frage erneut aufrufen
+					anzeigeAktualisieren();
+				}
 				
-				//Frage erneut aufrufen
-				anzeigeAktualisieren();
+				
 				
 			}
 			
@@ -98,7 +105,8 @@ public class FrageAnzeigen extends Activity {
 	public void anzeigeAktualisieren() {
 		Intent i = new Intent(this, FrageAnzeigen.class);
 		i.putExtra(FragenDatenbank.id, id);
-		startActivityForResult(i,1);
+		startActivity(i);
+		finish();
 	}
 
 	@Override
@@ -110,6 +118,7 @@ public class FrageAnzeigen extends Activity {
 	
 	public void onBackPressed(){
 		startActivity(new Intent(this, OffeneFragen.class));
+		finish();
 	}
 
 }

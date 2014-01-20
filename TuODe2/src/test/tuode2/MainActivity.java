@@ -3,16 +3,12 @@ package test.tuode2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-	private static final String TAG = "Activity";
-	
-	
 	
 	@Override
 	 protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +19,17 @@ public class MainActivity extends Activity {
         fragestellen.setOnClickListener(new OnClickListener (){
         	
         	public void onClick (View v){
-        		Log.v(TAG, "TEST LOG");
         		aufruf_stellen();
         	}
-        	 }
-        	 );
+    	});
         
         Button offeneFragen = (Button)findViewById(R.id.offen);
         offeneFragen.setOnClickListener(new OnClickListener (){
         	
         	public void onClick (View v){
-        		Log.v(TAG, "TEST LOG");
         		aufruf_offen();
         	}
-        	 }
-        	 );
+        });
         
         Button suchen = (Button)findViewById(R.id.suchen);
         suchen.setOnClickListener(new OnClickListener(){
@@ -61,63 +53,11 @@ public class MainActivity extends Activity {
 	
 	public void aufruf_stellen() {
 		Intent i = new Intent(this, Fragestellen.class);
-		startActivityForResult(i,1);
+		startActivity(i);
 	}
 	
 	public void aufruf_offen() {
 		Intent i = new Intent(this, OffeneFragen.class);
-		startActivityForResult(i,1);
+		startActivity(i);
 	}
-
-/*	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		super.onActivityResult(requestCode, resultCode, data);
-		
-		if(resultCode == RESULT_OK) {
-			Bundle korb = data.getExtras();
-			String s = korb.getString("wert1");
-			//String s = data.getDataString();
-			((TextView)findViewById(R.id.ausgabe)).setText(s);
-		}
-	}  */
-	
-	/*  TEST1
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		String result;
-		  if (requestCode == 1) {
-
-		     if(resultCode == RESULT_OK){      
-		         result=data.getStringExtra("result");          
-		     }
-		     if (resultCode == RESULT_CANCELED) {    
-		         //Write your code if there's no result
-		     }
-		  }
-		}//onActivityResult	
-	
-}  */
-	
-	
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		  if (requestCode == 1) {
-
-		     if(resultCode == RESULT_OK){ 
-		    	 /*
-		         Bundle korb = data.getExtras();
-		         String Title = korb.getString("title");
-		         String Beschreibung = korb.getString("beschreibung");
-				*/
-		     }
-		     if (resultCode == RESULT_CANCELED) {    
-		         //Write your code if there's no result
-		     }
-		  }
-		}//onActivityResult	
-	
 }
