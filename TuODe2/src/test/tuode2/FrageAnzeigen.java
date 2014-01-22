@@ -1,5 +1,8 @@
 package test.tuode2;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
@@ -9,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +27,9 @@ public class FrageAnzeigen extends Activity {
 	private String titel;
 	private String beschreibung;
 	private String kategorie;
+	private List<String> antworten = new ArrayList<String>();
+	private ListView lv;
+	private ArrayAdapter<String> ad;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +56,13 @@ public class FrageAnzeigen extends Activity {
 		String columnsAntworten[] = {FragenDatenbank.id,FragenDatenbank.frageId,FragenDatenbank.beschreibung};
 		cursor = con.query(FragenDatenbank.antwortenTabelle, columnsAntworten, FragenDatenbank.frageId.concat("="+String.valueOf(id)), null, null, null, null);
 		if(cursor.getCount()>0){
-			String antworten[];
-			antworten = new String[cursor.getCount()];
-			int i = 0;
-			
 			while(cursor.moveToNext()){
-				antworten[i] = cursor.getString(cursor.getColumnIndex(FragenDatenbank.beschreibung));
-				i++;
+				antworten.add(cursor.getString(cursor.getColumnIndex(FragenDatenbank.beschreibung)));
 			}
 			
-			ListView lv = (ListView) findViewById(R.id.antworten);
-			lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, antworten));
-			
+			lv = (ListView) findViewById(R.id.antworten);
+			ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, antworten);
+			lv.setAdapter(ad);
 			lv.setClickable(false);
 		}
 		con.close();
@@ -72,6 +75,7 @@ public class FrageAnzeigen extends Activity {
 			public void onClick(View v) {
 				EditText antwortText = (EditText)findViewById(R.id.antworttext);
 				String antwort = antwortText.getText().toString();
+				hideSoftKeyBoard();
 				
 				//Antwort in DB speichern
 				if(antwort.equals("")){
@@ -79,8 +83,15 @@ public class FrageAnzeigen extends Activity {
 				}
 				else{
 					antwortSpeichern(antwort);
-					//Frage erneut aufrufen
-					anzeigeAktualisieren();
+					//Textfeld leeren
+					antwortText.setText("");
+					//Antwort in Antwortenliste eintragen
+					antworten.add(antwort);
+					//ListView aktualisieren
+					ad.notifyDataSetChanged();
+					lv.requestFocus();
+					lv.setTranscriptMode(AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+					lv.setSelection(lv.getCount()-1);
 				}
 				
 				
@@ -102,13 +113,6 @@ public class FrageAnzeigen extends Activity {
 		
 	}
 
-	public void anzeigeAktualisieren() {
-		Intent i = new Intent(this, FrageAnzeigen.class);
-		i.putExtra(FragenDatenbank.id, id);
-		startActivity(i);
-		finish();
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -120,5 +124,12 @@ public class FrageAnzeigen extends Activity {
 		startActivity(new Intent(this, OffeneFragen.class));
 		finish();
 	}
+	private void hideSoftKeyBoard() {
+
+	    // TODO Auto-generated method stub
+	    InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+	    if(imm.isAcceptingText())// verify if the soft keyboard is open                         
+	    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+	            }
 
 }
