@@ -89,7 +89,6 @@ public void onCreate(Bundle savedInstanceState) {
 		Intent i = new Intent(this, FrageAnzeigen.class);
 		i.putExtra(FragenDatenbank.id, id);
 		startActivity(i);
-		finish();
 	}
 
 	@Override
@@ -99,9 +98,6 @@ public void onCreate(Bundle savedInstanceState) {
 		return true;
 	}
 
-	public void onBackPressed(){
-		startActivity(new Intent(this, MainActivity.class));
-		finish();
-	}
+	
 	
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.ContentValues;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -118,11 +117,6 @@ public class FrageAnzeigen extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.frage_anzeigen, menu);
 		return true;
-	}
-	
-	public void onBackPressed(){
-		startActivity(new Intent(this, OffeneFragen.class));
-		finish();
 	}
 	private void hideSoftKeyBoard() {
 
