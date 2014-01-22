@@ -7,7 +7,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="error_okay">Korrekte Eingabe</string>
     <string name="error_name_missing">Texteingabefeld ist leer !</string>
-    <string name="title_activity_offene_fragen">OffeneFragen</string>
+    <string name="title_activity_offene_fragen">Offene Fragen</string>
 
     <string-array name="kategorien">
         <item>(Kategorie auswählen)</item>
@@ -18,7 +18,18 @@
         <item>Gesundheit</item>
         <item>Gestaltung</item>
     </string-array>
+    
+     <string-array name="kategorienfilter">
+        <item>Alle Kategorien</item>
+        <item>Wirtschaft</item>
+        <item>Informatik</item>
+        <item>Mathematik</item>
+        <item>Sprachen</item>
+        <item>Gesundheit</item>
+        <item>Gestaltung</item>
+    </string-array>
 
     <string name="title_activity_frage_anzeigen">FrageAnzeigen</string>
+    <string name="title_activity_layout_test">LayoutTestActivity</string>
 
 </resources>

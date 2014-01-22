@@ -8,80 +8,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".OffeneFragen" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+    <Spinner
+        android:id="@+id/sp_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/kategorie1"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="Wirtschaft" />
-
-    <Button
-        android:id="@+id/kategorie2"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/kategorie1"
-        android:layout_centerHorizontal="true"
-        android:text="Informatik" />
-
-    <Button
-        android:id="@+id/kategorie3"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:layout_alignTop="@+id/linearLayout1"
-        android:text="Mathematik" />
-
-    <Button
-        android:id="@+id/kategorie4"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/kategorie1"
-        android:layout_marginTop="14dp"
-        android:layout_toLeftOf="@+id/kategorie2"
-        android:text="Sprachen" />
-
-    <Button
-        android:id="@+id/kategorie6"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/kategorie4"
-        android:layout_alignBottom="@+id/kategorie4"
-        android:layout_alignRight="@+id/linearLayout1"
-        android:text="Gestaltung" />
-
-    <Button
-        android:id="@+id/kategorie5"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/kategorie6"
-        android:layout_alignBottom="@+id/kategorie6"
-        android:layout_toLeftOf="@+id/kategorie6"
-        android:text="Gesundheit" />
+        android:entries="@array/kategorienfilter" />
 
     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/kategorie4"
-        android:layout_below="@+id/kategorie4"
-        android:layout_marginTop="25dp" >
+        android:layout_alignLeft="@+id/sp_filter"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/sp_filter" >
 
     </ListView>
 
