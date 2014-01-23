@@ -35,23 +35,11 @@
         android:layout_alignRight="@+id/suchen"
         android:text="offene Fragen"  />
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/stellen"
-        android:layout_alignLeft="@+id/stellen"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/offen"
-        android:layout_marginTop="16dp"
-        android:contentDescription="f"
-        android:src="@android:drawable/alert_dark_frame" />
-
     <TextView
         android:id="@+id/ausgabe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignLeft="@+id/stellen"
         android:layout_alignParentTop="true"
         android:text="TextView" />
 
