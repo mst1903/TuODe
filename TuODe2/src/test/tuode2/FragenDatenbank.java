@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class FragenDatenbank extends SQLiteOpenHelper{
 	
+	//Tabellennamen und Attribute in Strings speichern, um sie in anderen Klassen einfach aufrufen zu können
 	public static final String fragenTabelle = "frage";
 	public static final String antwortenTabelle = "antwort";
 	public static final String id = "_id";
@@ -20,7 +21,7 @@ public class FragenDatenbank extends SQLiteOpenHelper{
 	}
 
 	public void onCreate(SQLiteDatabase db) {
-		//DB-Tabellen fuer Frage, Kategorie und Antwort
+		//DB-Tabellen fuer Frage und Antwort
 		db.execSQL("CREATE TABLE frage ("
 				+ "_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "Titel TEXT NOT NULL," 
