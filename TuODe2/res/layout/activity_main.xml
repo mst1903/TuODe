@@ -1,57 +1,48 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:contentDescription="f"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.65"
+        android:text="@string/top_five_fragen"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/stellen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/frage_stellen" />
+
+        <Button
+            android:id="@+id/offen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/offene_fragen" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/suchen"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:text="Suchen" />
+        android:text="@string/suchen" />
 
-    <Button
-        android:id="@+id/stellen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/suchen"
-        android:layout_alignLeft="@+id/suchen"
-        android:layout_marginBottom="44dp"
-        android:text="Frage stellen" />
-
-    <Button
-        android:id="@+id/offen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/stellen"
-        android:layout_alignRight="@+id/suchen"
-        android:text="offene Fragen"  />
-
-    <TextView
-        android:id="@+id/ausgabe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/stellen"
-        android:layout_alignParentTop="true"
-        android:text="TextView" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/suchen"
-        android:layout_alignLeft="@+id/suchen"
-        android:layout_alignRight="@+id/suchen"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-
-</RelativeLayout>
+</LinearLayout>

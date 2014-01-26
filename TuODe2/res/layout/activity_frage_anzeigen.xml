@@ -1,80 +1,66 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:descendantFocusability="beforeDescendants"
-	android:focusableInTouchMode="true"
     tools:context=".FrageAnzeigen" >
 
     <TextView
         android:id="@+id/fragentitel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
         android:text="Ich bin eine Frage?"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <EditText
-        android:id="@+id/antworttext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bt_antworten"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_marginBottom="19dp"
-        android:ems="10"
-        android:inputType="textMultiLine" >
-
-    </EditText>
 
     <TextView
         android:id="@+id/beschreibung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/fragentitel"
-        android:layout_below="@+id/fragentitel"
         android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/neueAntwort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/beschreibung"
-        android:layout_below="@+id/beschreibung"
-        android:layout_marginTop="15dp"
-        android:text="Antworten:"
+        android:layout_marginTop="20dp"
+        android:text="@string/neue_antwort"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <EditText
+        android:id="@+id/antworttext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="19dp"
+        android:ems="10"
+        android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/bt_antworten"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/antworttext"
-        android:layout_alignParentBottom="true"
-        android:text="antworten" />
+        android:text="@string/antworten" />
+
+    <TextView
+        android:id="@+id/alteAntworten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/alte_antworten"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <ListView
         android:id="@+id/antworten"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_below="@+id/textView4" >
-
+        android:layout_height="wrap_content" >
     </ListView>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/antworttext"
-        android:layout_alignTop="@+id/antworttext"
-        android:text="Antwort eingeben:"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-</RelativeLayout>
+</LinearLayout>

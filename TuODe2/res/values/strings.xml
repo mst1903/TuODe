@@ -30,6 +30,18 @@
         <item>Gesundheit</item>
         <item>Gestaltung</item>
     </string-array>
+     <string name="frage_stellen">Frage stellen</string>
+     <string name="offene_fragen">offene Fragen</string>
+     <string name="suchen">suchen</string>
+     <string name="top_five_fragen">Slider der neuesten Top 5 Fragen</string>
+     <string name="absenden">absenden</string>
+     <string name="kategorie">Kategorie auswählen</string>
+     <string name="beschreibung">Beschreibung der Frage:</string>
+     <string name="titel">Titel:</string>
+     <string name="frage_anlegen">Neue Frage anlegen</string>
+     <string name="antworten">Antwort abschicken</string>
+     <string name="neue_antwort">Deine Antwort:</string>
+     <string name="alte_antworten">andere Antworten:</string>
 
     
 
